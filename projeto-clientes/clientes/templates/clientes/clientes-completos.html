@@ -1,0 +1,24 @@
+<!-- clientes/templates/clientes/clientes-completos.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Detalhes do Cliente</title>
+</head>
+<body>
+    <h1>Detalhes de {{ cliente.nome }} {{ cliente.sobrenome }}</h1>
+    <ul>
+        <li><strong>CPF:</strong> {{ cliente.CPF }}</li>
+        <li><strong>Gênero:</strong> {{ cliente.genero }}</li>
+        <li><strong>Estado Civil:</strong> {{ cliente.estado_civil }}</li>
+        <li><strong>Telefone:</strong> {{ cliente.telefone }}</li>
+        <li><strong>Email:</strong> {{ cliente.email }}</li>
+        <li><strong>Endereço:</strong> {{ cliente.rua }}, {{ cliente.numero }} {{ cliente.complemento }}</li>
+        <li><strong>Bairro:</strong> {{ cliente.bairro }}</li>
+        <li><strong>Cidade:</strong> {{ cliente.cidade }}</li>
+        <li><strong>Estado:</strong> {{ cliente.estado }}</li>
+        <li><strong>CEP:</strong> {{ cliente.CEP }}</li>
+        <li><strong>Data de Registro:</strong> {{ cliente.data_registro|date:"d/m/Y H:i" }}</li>
+    </ul>
+    <a href="{% url 'clientes' %}">Voltar para a lista</a>
+</body>
+</html>
