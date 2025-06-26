@@ -1,12 +1,7 @@
-{% extends 'clientes/base.html' %}
+{% extends 'base.html' %}
 
 {% block content %}
     
-    <h1>Viagens de: {{ cliente.nome }}</h1>
-    <p>Email: {{ cliente.email }}</p>
-
-    <hr>
-
     <h2>Histórico de Viagens</h2>
 
     {% if viagens %}
