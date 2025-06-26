@@ -1,4 +1,5 @@
 from django.db import models
+from clientes.models import Cliente
 
 # Create your models here.
 class Viagem(models.Model):

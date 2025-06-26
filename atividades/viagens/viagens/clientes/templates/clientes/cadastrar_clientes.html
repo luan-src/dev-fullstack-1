@@ -1,0 +1,17 @@
+{% extends 'clientes/base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="container-sm mt-5">
+    <h1>Cadastro de Cliente</h1>
+</div>
+
+<form method="post" class="container-sm">
+    {% csrf_token %}
+    {{ form|crispy }}
+
+    <button type="submit">Cadastrar Cliente</button>
+    <p><a href="{% url 'listar_clientes' %}">Voltar para Menu</a></p>
+    
+{% endblock %}
