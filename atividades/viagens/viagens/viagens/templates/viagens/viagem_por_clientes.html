@@ -1,0 +1,37 @@
+{% extends 'clientes/base.html' %}
+
+{% block content %}
+    
+    <h1>Viagens de: {{ cliente.nome }}</h1>
+    <p>Email: {{ cliente.email }}</p>
+
+    <hr>
+
+    <h2>Histórico de Viagens</h2>
+
+    {% if viagens %}
+        <table border="1" cellpadding="8" cellspacing="1" width="100%">
+            <thead>
+                <tr>
+                    <th>Destino</th>
+                    <th>Data da Partida</th>
+                    <th>Preço (R$)</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for viagem in viagens %}
+                <tr>
+                    <td>{{ viagem.destino }}</td>
+                    <td>{{ viagem.data_partida|date:"d/m/Y" }}</td>
+                    <td>{{ viagem.preco|floatformat:2 }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>Este cliente ainda não foi incluído em nenhuma viagem.</p>
+    {% endif %}
+
+    <br>
+
+{% endblock %}

@@ -16,6 +16,7 @@
                 <td>{{ viagem.destino }}</td>
                 <td>{{ viagem.data_partida }}</td>
                 <td>{{ viagem.preco }}</td>
+                <td><a href="{% url 'cliente_viagens' viagem.id %}">Ver clientes</a></td>
             </tr>
             {% empty %}
             <tr>

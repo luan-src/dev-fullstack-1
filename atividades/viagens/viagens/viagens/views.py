@@ -1,10 +1,10 @@
-from django.shortcuts import render, HttpResponse, redirect
+from django.shortcuts import render, redirect
 from .forms import ViagemForm
 from .models import Viagem
+from clientes.models import Cliente
 
 def index(request):
-    return HttpResponse("Hello, world! This is the Viagens app index page.")
-
+    return render(request, 'viagens/index.html')
 
 def nova_viagem(request):
     if request.method == 'POST':
@@ -21,3 +21,13 @@ def listar_viagens(request):
     viagens = Viagem.objects.all()
     dados = {'viagens': viagens}
     return render(request, 'viagens/listar_viagens.html', dados)
+
+def cliente_viagens(request, cliente_id):
+    viagens_do_cliente = Cliente.objects.get(pk=cliente_id).viagens.all()
+
+    context = {
+        'cliente': Cliente,
+        'viagens': viagens_do_cliente
+    }
+
+    return render(request, 'viagens/viagem_por_clientes.html', context)

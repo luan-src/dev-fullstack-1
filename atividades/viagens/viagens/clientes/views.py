@@ -3,9 +3,6 @@ from django.shortcuts import redirect
 from .forms import ClienteForm
 from .models import Cliente
 
-def index(request):
-    return HttpResponse("Hello, world! This is the Clientes app index page.")
-
 def cadastrar_cliente(request):
     if request.method == 'POST':
         form = ClienteForm(request.POST)
