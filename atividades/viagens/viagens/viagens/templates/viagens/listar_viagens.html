@@ -1,0 +1,27 @@
+{% extends 'viagens/base.html' %}
+
+{% block content %}
+    <h1>Lista de Viagens</h1>
+    <table border="1" cellpadding="5" cellspacing="1">
+        <thead>
+            <tr>
+                <th>Destino</th>
+                <th>Data Partida</th>
+                <th>Preco</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for viagem in viagens %}
+            <tr>
+                <td>{{ viagem.destino }}</td>
+                <td>{{ viagem.data_partida }}</td>
+                <td>{{ viagem.preco }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="4">Nenhuma viagem cadastrada.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
